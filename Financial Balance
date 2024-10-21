@@ -1,0 +1,39 @@
+#Balanço Financeiro Categorizado
+
+num_movimentacoes = int(input())
+
+despesas = {'A': 0, 'M': 0, 'T': 0, 'S': 0, 'L': 0}
+receitas = {'S': 0, 'P': 0}
+
+for _ in range(num_movimentacoes):
+    valor = float(input())
+    categoria = input()
+
+    if valor < 0:
+        despesas[categoria] += valor
+    else:
+        receitas[categoria] += valor
+
+total_renda = sum(receitas.values())
+total_gastos = sum(despesas.values())
+balanco = total_renda + total_gastos
+
+print('Movimentações')
+if despesas['A'] != 0:
+    print('  Alimentação:', format(despesas['A'], '.2f'))
+if despesas['M'] != 0:
+    print('  Moradia:', format(despesas['M'], '.2f'))
+if despesas['T'] != 0:
+    print('  Transporte:', format(despesas['T'], '.2f'))
+if despesas['S'] != 0:
+    print('  Saúde:', format(despesas['S'], '.2f'))
+if despesas['L'] != 0:
+    print('  Lazer:', format(despesas['L'], '.2f'))
+if receitas['S'] != 0:
+    print('  Salário:', format(receitas['S'], '.2f'))
+if receitas['P'] != 0:
+    print('  Prestação de serviços:', format(receitas['P'], '.2f'))
+
+print("Total de Renda:", format(total_renda, ".2f"))
+print("Total de Gastos:", format(total_gastos, ".2f"))
+print("Balanço:", format(balanco, ".2f"))
